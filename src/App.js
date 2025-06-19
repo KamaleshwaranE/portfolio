@@ -1,7 +1,8 @@
 import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { FaNodeJs, FaReact, FaDocker, FaGithub } from "react-icons/fa";
-import { SiMongodb, SiMysql, SiTypescript, SiAmazonaws } from "react-icons/si";
+import { Card, CardContent } from "./components/ui/card";
+
+import { FaNodeJs, FaReact, FaDocker, FaGithub, FaAws } from "react-icons/fa";
+import { SiMongodb, SiMysql, SiTypescript } from "react-icons/si";
 
 export default function Portfolio() {
   return (
@@ -16,7 +17,7 @@ export default function Portfolio() {
         </p>
         <div className="flex justify-center gap-6 mt-4 text-3xl text-gray-700">
           <FaNodeJs /> <FaReact /> <SiMongodb /> <SiMysql /> <SiTypescript />{" "}
-          <FaDocker /> <SiAmazonaws /> <FaGithub />
+          <FaDocker /> <FaAws /> <FaGithub />
         </div>
       </section>
 
