@@ -17,14 +17,16 @@ const CardHeader = ({ className, ...props }) => (
   <div className={cn("flex flex-col space-y-1.5 p-6", className)} {...props} />
 );
 
-const CardTitle = ({ className, ...props }) => (
+const CardTitle = ({ className, children, ...props }) => (
   <h3
     className={cn(
       "text-2xl font-semibold leading-none tracking-tight",
       className
     )}
     {...props}
-  />
+  >
+    {children}
+  </h3>
 );
 
 const CardDescription = ({ className, ...props }) => (
