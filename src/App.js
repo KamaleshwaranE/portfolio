@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Card, CardContent } from "./components/ui/card";
 import {
   FaNodeJs,
@@ -13,44 +13,21 @@ import { SiMongodb, SiMysql, SiTypescript, SiGmail } from "react-icons/si";
 import { motion } from "framer-motion";
 
 export default function Portfolio() {
-  const [darkMode, setDarkMode] = useState(false);
-
   return (
     <main
-      className={`relative min-h-screen p-6 transition-all duration-500 ${
-        darkMode ? "text-white" : "text-white"
-      }`}
+      className="relative min-h-screen p-6 text-white"
       style={{
-        backgroundImage: darkMode
-          ? "url('/assets/bg-dark-tech.jpg')" // 📌 use actual public folder path
-          : "url('/assets/bg-light-tech.jpg')",
+        backgroundImage: "url('/assets/bg-dark-tech.jpg')",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
-        backgroundBlendMode: "overlay",
       }}
     >
-      {/* Overlay to improve text readability */}
-      <div
-        className={`absolute inset-0 z-0 ${
-          darkMode ? "bg-black bg-opacity-60" : "bg-black bg-opacity-[0.01]"
-        } backdrop-blur-sm`}
-      ></div>
+      {/* Dark translucent overlay */}
+      <div className="absolute inset-0 bg-black bg-opacity-80 z-0" />
 
-      {/* Content wrapper */}
-      <div className="relative z-10">
-        {/* Theme Toggle */}
-        <div className="max-w-5xl mx-auto flex justify-end mb-4">
-          <button
-            onClick={() => setDarkMode(!darkMode)}
-            className="px-4 py-2 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition"
-          >
-            {darkMode ? "Light Mode" : "Dark Mode"}
-          </button>
-        </div>
-
-        {/* Header */}
-        <section className="max-w-5xl mx-auto text-center">
+      <div className="relative z-10 max-w-5xl mx-auto">
+        <section className="text-center">
           <motion.h1
             className="text-5xl font-bold mb-3"
             initial={{ opacity: 0, y: -20 }}
@@ -60,34 +37,32 @@ export default function Portfolio() {
             Kamaleshwaran Elayaraja
           </motion.h1>
           <motion.p
-            className="text-xl text-purple-700 dark:text-purple-300"
+            className="text-xl text-purple-300"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
             Backend Developer | MERN Stack | TypeScript | Docker
           </motion.p>
-          <p className="text-md mt-1 text-gray-600 dark:text-gray-300">
+          <p className="text-md mt-1 text-gray-300">
             2.5+ Years of Experience | Open to Remote/On-Site Roles
           </p>
           <motion.div
-            className="flex justify-center gap-6 mt-6 text-3xl text-pink-600 dark:text-pink-300 flex-wrap"
+            className="flex justify-center gap-6 mt-6 text-3xl text-pink-300 flex-wrap"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            <FaNodeJs /> <FaReact /> <SiMongodb /> <SiMysql /> <SiTypescript />{" "}
+            <FaNodeJs /> <FaReact /> <SiMongodb /> <SiMysql /> <SiTypescript />
             <FaDocker /> <FaAws /> <FaGithub />
           </motion.div>
         </section>
 
-        {/* Separator */}
-        <div className="w-full h-12 bg-gradient-to-r from-purple-300 via-indigo-300 to-pink-300 my-16 rounded-full opacity-50"></div>
+        <div className="w-full h-6 bg-gradient-to-r from-purple-300 via-indigo-300 to-pink-300 my-16 rounded-full opacity-50" />
 
-        {/* About Section */}
-        <section className="max-w-5xl mx-auto">
+        <section>
           <motion.h2
-            className="text-3xl font-semibold mb-4 text-indigo-700 dark:text-indigo-300"
+            className="text-3xl font-semibold mb-4 text-indigo-300"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -95,7 +70,7 @@ export default function Portfolio() {
             About Me
           </motion.h2>
           <motion.p
-            className="text-gray-700 dark:text-gray-200"
+            className="text-gray-200"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.1 }}
@@ -108,7 +83,7 @@ export default function Portfolio() {
             Proficient in TypeScript and containerization using Docker.
           </motion.p>
           <motion.p
-            className="mt-2 text-gray-700 dark:text-gray-200"
+            className="mt-2 text-gray-200"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
@@ -120,13 +95,11 @@ export default function Portfolio() {
           </motion.p>
         </section>
 
-        {/* Separator */}
-        <div className="w-full h-12 bg-gradient-to-r from-purple-300 via-indigo-300 to-pink-300 my-16 rounded-full opacity-50"></div>
+        <div className="w-full h-6 bg-gradient-to-r from-purple-300 via-indigo-300 to-pink-300 my-16 rounded-full opacity-50" />
 
-        {/* Projects Section */}
-        <section className="max-w-5xl mx-auto">
+        <section>
           <motion.h2
-            className="text-3xl font-semibold mb-4 text-indigo-700 dark:text-indigo-300"
+            className="text-3xl font-semibold mb-4 text-indigo-300"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -135,19 +108,15 @@ export default function Portfolio() {
           </motion.h2>
           <div className="grid md:grid-cols-2 gap-6">
             <motion.div whileHover={{ scale: 1.03 }}>
-              <Card
-                className={`${
-                  darkMode ? "bg-gray-800" : "bg-white"
-                } shadow-lg hover:shadow-xl transition-shadow`}
-              >
-                <CardContent className="p-4 mt-1">
-                  <h3 className="text-xl font-bold mb-2 text-purple-800 dark:text-purple-300">
+              <Card className="bg-gray-800 shadow-lg hover:shadow-xl transition-shadow">
+                <CardContent className="p-4">
+                  <h3 className="text-xl font-bold mb-2 text-purple-300">
                     MERN Stack CRUD App
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400">
+                  <p className="text-gray-400">
                     MongoDB, Express, React, Node.js
                   </p>
-                  <p className="mt-2 text-sm text-gray-800 dark:text-gray-200">
+                  <p className="mt-2 text-sm text-gray-200">
                     Created a CRUD web app with protected APIs and JWT-based
                     authentication.
                   </p>
@@ -156,19 +125,15 @@ export default function Portfolio() {
             </motion.div>
 
             <motion.div whileHover={{ scale: 1.03 }}>
-              <Card
-                className={`${
-                  darkMode ? "bg-gray-800" : "bg-white"
-                } shadow-lg hover:shadow-xl transition-shadow`}
-              >
-                <CardContent className="p-4 mt-1">
-                  <h3 className="text-xl font-bold mb-2 text-purple-800 dark:text-purple-300">
+              <Card className="bg-gray-800 shadow-lg hover:shadow-xl transition-shadow">
+                <CardContent className="p-4">
+                  <h3 className="text-xl font-bold mb-2 text-purple-300">
                     Dockerized REST API
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400">
+                  <p className="text-gray-400">
                     Node.js, Express, MongoDB, Docker
                   </p>
-                  <p className="mt-2 text-sm text-gray-800 dark:text-gray-200">
+                  <p className="mt-2 text-sm text-gray-200">
                     Built a REST API using Docker Compose with volumes and
                     environment-based config.
                   </p>
@@ -178,46 +143,38 @@ export default function Portfolio() {
           </div>
         </section>
 
-        {/* Separator */}
-        <div className="w-full h-12 bg-gradient-to-r from-purple-300 via-indigo-300 to-pink-300 my-16 rounded-full opacity-50"></div>
+        <div className="w-full h-6 bg-gradient-to-r from-purple-300 via-indigo-300 to-pink-300 my-16 rounded-full opacity-50" />
 
-        {/* Contact Section */}
-        <section className="max-w-5xl mx-auto">
+        <section>
           <motion.h2
-            className="text-3xl font-semibold mb-4 text-indigo-700 dark:text-indigo-300"
+            className="text-3xl font-semibold mb-4 text-indigo-300"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
             Contact
           </motion.h2>
-          <div className="space-y-1 text-pink-600 dark:text-pink-300">
-            <p className="flex space-x-2">
-              <FaPhoneAlt className="mt-1" />{" "}
-              <span className="text-gray-800 dark:text-pink-300">
-                +91-8300702695
-              </span>
+          <div className="space-y-2 text-pink-300">
+            <p className="flex space-x-2 items-center">
+              <FaPhoneAlt /> <span>+91-8300702695</span>
             </p>
-            <p className="flex space-x-2">
-              <SiGmail className="mt-1" />{" "}
-              <span className="text-gray-800 dark:text-pink-300">
-                kamaleshwaran893@gmail.com
-              </span>
+            <p className="flex space-x-2 items-center">
+              <SiGmail /> <span>kamaleshwaran893@gmail.com</span>
             </p>
-            <p className="flex space-x-2">
-              <FaLinkedinIn className="mt-1" />{" "}
+            <p className="flex space-x-2 items-center">
+              <FaLinkedinIn />
               <a
                 href="https://www.linkedin.com/in/kamaleshwaran893"
-                className="text-blue-600 dark:text-blue-400 underline"
+                className="underline text-blue-400"
               >
                 LinkedIn Profile
               </a>
             </p>
-            <p className="flex space-x-2">
-              <FaGithub className="mt-1 " />{" "}
+            <p className="flex space-x-2 items-center">
+              <FaGithub />
               <a
                 href="https://github.com/KamaleshwaranE"
-                className="text-blue-600 dark:text-blue-400 underline"
+                className="underline text-blue-400"
               >
                 GitHub Portfolio
               </a>
